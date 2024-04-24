@@ -4,7 +4,8 @@ class GameLoop{
 
         this.time = new Time();
         this.user_input = new Input();
-        th
+        this.user = new Player();
+        this.level = new Level();
         this.physics = new Physics();
         // this.sfx = new SoundEffects();
         this.render = new Render();

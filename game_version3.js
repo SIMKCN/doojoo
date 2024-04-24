@@ -9,10 +9,11 @@ class GameLoop{
         this.physics = new Physics();
         // this.sfx = new SoundEffects();
         this.render = new Render();
-        // this.frontend = new Frontend();
+        this.frontend = new Frontend();
         this.cur_level = 1;
         this.first_loop = true;
         this.animation = null;
+        this.frontend = null;
     }
 
     loop() 
@@ -23,6 +24,7 @@ class GameLoop{
         this.user.turn(this.time, this.user_input);
         this.physics.update(this.user, this.level);
         this.render.draw(this.user, this.level);
+        this.frontend()
         this.sleep(15).then(() => {this.loop();});
 
     }

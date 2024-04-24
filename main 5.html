@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de"></html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href='style.css'>
+        
+
+        <script src="Input.js"></script>
+        <script src="Time.js"></script>
+        <script src="Physics.js"></script>
+        <script src="Player.js"></script>
+        <script src="Render.js"></script>
+        <script src="Level.js"></script>
+        <script src="game_version3.js"></script>
+
+    </head>
+
+    <body>
+
+        <img id="playerIcon" src="icon.bmp" style="display:none"/>
+        <div class="tutorial">
+            <h1>Tutorial</h1>
+            <p>Versuche das Zielfeld so schnell wie möglich zu erreichen. </p>
+            <p>Bewege die Figur mit A nach links und D nach rechts.</p>
+            <p>Wenn du von der Plattformen fällst, beginnst du wieder von neuem. </p>
+            <p>Je schneller du bist, desto mehr Punkte bekommst du.</p>
+        </div>   
+        <div class="restartmenu">
+            <h1 class="endtitel" id="endtitel" style="display:none">Du hast Gewonnen</h1>
+            <p class="endpunkte" id="endPunkte" style="display:none">500 punkte</p>
+            <button class="restartbutton" id="restartButton" style="display:none">Erneut starten</button>
+        </div>
+        <button class="startbutton" id="button" onclick="start()">Start</button>
+        <div id="darkLayer" class="darklayer" ></div>
+        <p id="time" class="time" style="display:none">00:00</p>
+        <p id="score" class="score" style="display:none">0 Punkte</p>
+        <div class="mainwindow">
+            <canvas id="gamewindow" width="500" height="700" >
+            </canvas>
+        </div>    
+    </body>

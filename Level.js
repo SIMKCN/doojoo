@@ -7,7 +7,6 @@ class Level {
         this._level_data_loading = null;
     }
     get platforms() {
-
         return this._level[this._last_level];
     }
     get finish_platform() {

@@ -7,7 +7,6 @@ class Level {
         this._level_data_loading = null;
     }
     get platforms() {
-
         return this._level[this._last_level];
     }
     get finish_platform() {
@@ -16,6 +15,7 @@ class Level {
     get spawn_point() {
         return this._spawn_point[this._last_level];
     }
+
     updateLevel(cur_level) {
         if (this._last_level != cur_level - 1) {
             this.level_data_loading = true;

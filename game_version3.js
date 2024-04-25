@@ -19,19 +19,12 @@ class GameLoop{
     loop() 
     {
         this.gameInit();
-        console.log("Game Init -- done");
         this.time.calculateTime();
-        console.log("Cacl Time -- done");
         this.level.updateLevel(this.cur_level);
-        console.log("update Level-- done");
         this.user.turn(this.time, this.user_input);
-        console.log("Turn -- done");
         this.physics.update(this.user, this.level);
-        console.log("Physics -- done");
         this.render.draw(this.user, this.level);
-        console.log("draw-done")
         this.frontend()
-        console.log("frontend done")
         this.sleep(15).then(() => {this.loop();});
 
     }

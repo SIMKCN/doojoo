@@ -20,7 +20,6 @@ class Level {
 
     updateLevel(cur_level) {
         if (this._last_level != cur_level - 1) {
-            console.log("hope this is only one");
             this.level_data_loading = true;
             this.readJSON(cur_level-1); 
             this._last_level = cur_level - 1;

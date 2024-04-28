@@ -3,5 +3,7 @@ class Frontend
     constructor() {
     
     }
+    render(){
+    }
 
 }

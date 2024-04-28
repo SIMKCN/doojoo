@@ -13,7 +13,6 @@ class GameLoop{
         this.cur_level = 1;
         this.first_loop = true;
         this.animation = null;
-        this.frontend = null;
     }
 
     loop() 
@@ -24,7 +23,7 @@ class GameLoop{
         this.user.turn(this.time, this.user_input);
         this.physics.update(this.user, this.level);
         this.render.draw(this.user, this.level);
-        this.frontend()
+        this.frontend.render();
         this.sleep(15).then(() => {this.loop();});
 
     }

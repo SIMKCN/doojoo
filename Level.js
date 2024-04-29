@@ -4,7 +4,7 @@ class Level {
         this._level = null;
         this._finish_platform = null;
         this._spawn_point = null;
-        this._level_data_loading = null;
+        this.level_data_loading = null;
     }
     get platforms() {
         return this._level[this._last_level];
@@ -16,15 +16,13 @@ class Level {
         return this._spawn_point[this._last_level];
     }
 
+
+
     updateLevel(cur_level) {
         if (this._last_level != cur_level - 1) {
             this.level_data_loading = true;
             this.readJSON(cur_level-1); 
             this._last_level = cur_level - 1;
-
-            
-            
-            
         }
     }
     async readJSON() {
@@ -42,6 +40,5 @@ class Level {
         this.level_data_loading = false;
         
     }
-
       
 }

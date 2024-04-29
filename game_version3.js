@@ -11,30 +11,48 @@ class GameLoop{
         this.render = new Render();
         this.frontend = new Frontend();
         this.cur_level = 1;
-        this.first_loop = true;
         this.animation = null;
     }
 
-    loop() 
+    gameInit() {
+        this.level.updateLevel(this.cur_level);
+        this.frontend.dimOff();
+        this.sleep(15).then(() => {this.loop();});
+    }
+
+   manager() 
     {
-        this.gameInit();
         this.time.calculateTime();
         this.level.updateLevel(this.cur_level);
-        this.user.turn(this.time, this.user_input);
+        this.user.turn(this.time, this.user_input, this.cur_level, this.level);
         this.physics.update(this.user, this.level);
         this.render.draw(this.user, this.level);
-        this.frontend.render();
-        this.sleep(15).then(() => {this.loop();});
+        // this.frontend.render();
+        this.loop(); 
+    }
 
-    }
-    gameInit() {
-        if (this.first_loop) {
-            this.level.updateLevel(this.cur_level);
-            this.sleep(15).then(() => {this.loop();});
-            this.first_loop = false;
+    loop(){
+        if(this.asyncFinished())
+        {
+            this.sleep(5).then(() => {this.manager();});
+            this.level_data_loading = true;
         }
-        
+        else{
+            this.sleep(5).then(() => {this.loop();});
+        }
     }
+
+    asyncFinished(){
+        if(this.level.level_data_loading)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     sleep (time) {
         return new Promise((resolve) => setTimeout(resolve, time));
     }

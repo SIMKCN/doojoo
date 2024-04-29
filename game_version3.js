@@ -18,14 +18,13 @@ class GameLoop{
         this.level.updateLevel(this.cur_level);
         this.frontend.dimOff();
         this.sleep(15).then(() => {this.loop();});
-        
     }
 
    manager() 
     {
         this.time.calculateTime();
         this.level.updateLevel(this.cur_level);
-        this.user.turn(this.time, this.user_input);
+        this.user.turn(this.time, this.user_input, this.cur_level, this.level);
         this.physics.update(this.user, this.level);
         this.render.draw(this.user, this.level);
         // this.frontend.render();

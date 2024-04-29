@@ -49,9 +49,9 @@ class Physics {
     }
     bounce(user, level)
     {
-        for(let plat_num = -1; plat_num < level.platforms.length; plat_num++)
+        for(let plat_num = 0; plat_num < level.platforms.length; plat_num++)
         {
-            if(user.y_speed > 0 && inXSpan(plat_num, user, level) && inYSpan(plat_num, user, level))
+            if(user.y_speed > 0 && this.inXSpan(plat_num, user, level) && this.inYSpan(plat_num, user, level))
             {
                 //jump.play();
                 user.y_speed = -20;

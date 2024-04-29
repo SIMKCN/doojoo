@@ -6,7 +6,6 @@ class Frontend
     dimOn()
     {
         document.getElementById("restartButton").style.display = "";
-        document.getElementById("playerIcon").style.display = "";
         document.getElementById("darkLayer").style.display = "";
         document.getElementById("endtitel").style.display = "";
         document.getElementById("endPunkte").style.display = "";
@@ -16,7 +15,6 @@ class Frontend
 
     dimOff() {
         document.getElementById("endtitel").style.display = "none";
-        document.getElementById("playerIcon").style.display = "none";
         document.getElementById("endPunkte").style.display = "none";
         document.getElementById("button").style.display = "none";
         document.getElementById("darkLayer").style.display = "none";

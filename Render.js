@@ -21,7 +21,11 @@ class Render {
 
     drawPlayer(user)
     {
-        this.ctx.drawImage(document.getElementById("playerIcon"), user.x_position, user.y_position-50, 50, 50);
+        let dy = user.y_position-50;
+        let dx = user.x_position;
+        let dWidth = 50;
+        let dHeight = 50;
+        this.ctx.drawImage(document.getElementById("playerIcon"), dx, dy, dWidth, dHeight);
     }
     drawPlatform(level) {
         for (let plat_num = 0; plat_num < level.platforms.length; plat_num++) {

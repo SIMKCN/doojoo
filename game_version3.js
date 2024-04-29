@@ -16,19 +16,19 @@ class GameLoop{
 
     gameInit() {
         this.level.updateLevel(this.cur_level);
+        this.frontend.dimOff();
         this.sleep(15).then(() => {this.loop();});
         
     }
 
    manager() 
     {
-        this.gameInit();
         this.time.calculateTime();
         this.level.updateLevel(this.cur_level);
         this.user.turn(this.time, this.user_input);
         this.physics.update(this.user, this.level);
         this.render.draw(this.user, this.level);
-        this.frontend.render();
+        // this.frontend.render();
         this.loop(); 
     }
 

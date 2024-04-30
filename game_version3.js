@@ -22,13 +22,28 @@ class GameLoop{
 
    manager() 
     {
-        this.time.calculateTime();
-        this.level.updateLevel(this.cur_level);
-        this.user.turn(this.time, this.user_input, this.cur_level, this.level);
-        this.physics.update(this.user, this.level);
-        this.render.draw(this.user, this.level);
-        // this.frontend.render();
-        this.loop(); 
+        if(this.user.playerIsAtGoal(this.level) || this.user.playerIsOutOfTime()){
+            this.endGame();
+        }
+        else
+        {
+            this.time.calculateTime();
+            this.level.updateLevel(this.cur_level);
+            this.user.turn(this.time, this.user_input, this.cur_level, this.level);
+            this.physics.update(this.user, this.level);
+            this.render.draw(this.user, this.level);
+            // this.frontend.render();
+            this.loop(); 
+        }
+    }
+
+    endGame() {
+        this.frontend.updateEndscreen(this.user);
+        this.user.resetPosition(this.level);
+        // resetTimer();
+        this.render.emptyCanvas();
+        this.frontend.dimOn();
+        // audio.pause();
     }
 
     loop(){

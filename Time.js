@@ -56,11 +56,11 @@ class Time{
     timeTillNextFrame()
     {
         this._frames_since_start++;
-
+        updateTime()
         this._time_since_last_frame = null
         // console.log(this._time_since_start_mil / (this._frames_since_start*5));
         // console.log(this._frames_since_start*5);
-        return 0 /*..... */;
+        return 15/*..... */;
     }
 
 }

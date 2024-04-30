@@ -1,7 +1,7 @@
 class Time{
     constructor() { 
         this._current_time = null; // überprüfen
-        this._time_since_last_frame = null;
+        this._time_since_start_frame = null;
         this._last_time = null;
         this._frames_since_start = 0;
 
@@ -29,7 +29,6 @@ class Time{
     
     updateTime()
     {
-        this._time_since_last_frame = this._time_since_start_mil;
         this._time_since_start_mil += this.calculateTime();
         this._time_since_start_sec = Math.floor(this._time_since_start_mil / 1000);
         this._time_since_start_min = Math.floor(this._time_since_start_mil / 60000);
@@ -55,12 +54,11 @@ class Time{
 
     timeTillNextFrame()
     {
-        this._frames_since_start++;
-
-        this._time_since_last_frame = null
+        this._time_since_start_frame = this._time_since_start_mil;
+        this.updateTime();
         // console.log(this._time_since_start_mil / (this._frames_since_start*5));
         // console.log(this._frames_since_start*5);
-        return 0 /*..... */;
+        return 15 - (this._time_since_start_frame - this._time_since_start_mi);
     }
 
 }

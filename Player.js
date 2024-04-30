@@ -5,7 +5,7 @@ class Player {
         this._y_position = null;
         this._x_speed = null;
         this._y_speed = null;
-        this._x_acceleration = 0.2;
+        this._x_acceleration = 0.1;
         this._y_acceleration = 1;
         this.last_level = null;
         this.LEFT = 0;

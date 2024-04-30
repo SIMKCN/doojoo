@@ -10,7 +10,7 @@ class GameLoop{
         // this.sfx = new SoundEffects();
         this.render = new Render();
         this.frontend = new Frontend();
-        this.cur_level = 2;
+        this.cur_level = 1;
         this.animation = null;
     }
 
@@ -51,10 +51,11 @@ class GameLoop{
         if(this.asyncFinished())
         {
             this.sleep(this.time.timeTillNextFrame()).then(() => {this.manager();});
-            this.level_data_loading = true;
+            this.level_data_loading = false;
         }
         else{
-            this.sleep(5).then(() => {this.loop();});
+            this.sleep(this.time.timeTillNextFrame()).then(() => {this.loop();});
+            this.level_data_loading = true;
         }
     }
 

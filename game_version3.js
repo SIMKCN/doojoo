@@ -24,13 +24,13 @@ class GameLoop{
         this.physics.update(this.user, this.level);
         this.render.draw(this.user, this.level);
         this.frontend.render();
-        this.sleep(15).then(() => {this.loop();});
+        this.sleep(30).then(() => {this.loop();});
 
     }
     gameInit() {
         if (this.first_loop) {
             this.level.updateLevel(this.cur_level);
-            this.sleep(15).then(() => {this.loop();});
+            this.sleep(30).then(() => {this.loop();});
             this.first_loop = false;
         }
         

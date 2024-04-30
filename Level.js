@@ -1,8 +1,7 @@
 class Level {
     constructor() {
         this._last_level = null;
-        this._level = null;
-        this._finish_platform = null;
+        this._level = null;        this._finish_platform = null;
         this._spawn_point = null;
         this._level_data_loading = null;
     }
@@ -30,16 +29,14 @@ class Level {
     async readJSON() {
 
         const response = await fetch('level.json');
-
-
         const data = await response.json();
 
         this._level = data.level;
-    
         this._finish_platform = data.finish_platform;
         
         this._spawn_point = data.spawn_point;
         this.level_data_loading = false;
+        
         
     }
 

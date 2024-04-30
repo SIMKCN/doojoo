@@ -17,9 +17,9 @@ class Physics {
 
             user.y_position = 1000;
         }
-        if (user.y_speed <= -20) {
+        if (user.y_speed >= 20) {
 
-            user.y_speed = -20;
+            user.y_speed = 20;
 
         }
     }

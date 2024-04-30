@@ -33,13 +33,19 @@ class Time{
         this._time_since_start_min = Math.floor(this._time_since_start_mil / 60000);
 
     }
+
+    resetTime()
+    {
+        this._time_since_start_mil = 0;
+
+    }
+
     calculateTime() 
     {
         if(this._last_time != null)
         {
             this._current_time = Date.now();
             let temp_time_last_frame = this._current_time - this._last_time;
-            console.log(temp_time_last_frame);
             this._last_time = this._current_time;
             return temp_time_last_frame;
         }

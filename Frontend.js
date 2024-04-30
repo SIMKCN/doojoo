@@ -47,15 +47,23 @@ class Frontend {
     }
 
 
-    updateEndscreen(user) {
+    updateEndscreen(user, is_level_left) {
         if (user.playerIsOutOfTime()) {
             document.getElementById("endtitel").innerHTML = "Du hast Verloren";
             document.getElementById("endPunkte").innerHTML = "";
         }
         else {
-
-            document.getElementById("endtitel").innerHTML = "Du hast Gewonnen";
-            document.getElementById("endPunkte").innerHTML = user.player_points + " Punkte";
+            if(!is_level_left){
+                document.getElementById("endtitel").innerHTML = "Du hast Gewonnen";
+                document.getElementById("endPunkte").innerHTML = user.player_points + " Levelpunkte";
+                document.getElementById("restartButton").innerHTML = "Erneut Starten";
+            }
+            else {
+                document.getElementById("endtitel").innerHTML = "Du hast das Level geschafft!";
+                document.getElementById("endPunkte").innerHTML = user.player_points + " Levelpunkte";
+                document.getElementById("restartButton").innerHTML = "Nächstes Level";
+            }
+            
         }
     }
 }

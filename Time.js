@@ -1,7 +1,6 @@
 class Time{
     constructor() { 
         this._current_time = null; // überprüfen
-        this._time_since_start_frame = null;
         this._last_time = null;
         this._frames_since_start = 0;
 
@@ -54,11 +53,7 @@ class Time{
 
     timeTillNextFrame()
     {
-        this._time_since_start_frame = this._time_since_start_mil;
-        this.updateTime();
-        // console.log(this._time_since_start_mil / (this._frames_since_start*5));
-        // console.log(this._frames_since_start*5);
-        return 15 - (this._time_since_start_frame - this._time_since_start_mi);
+        return 13;
     }
 
 }

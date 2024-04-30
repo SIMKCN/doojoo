@@ -13,9 +13,6 @@ class Frontend
         document.getElementById("score").style.display = "none";
     }
 
-<<<<<<< HEAD
-
-=======
     dimOff() {
         document.getElementById("endtitel").style.display = "none";
         document.getElementById("endPunkte").style.display = "none";
@@ -25,5 +22,4 @@ class Frontend
         document.getElementById("time").style.display = "";
         document.getElementById("score").style.display = "";
     }
->>>>>>> 0c9599b7e92d39b98b615d9f2db310dd978db5c7
 }

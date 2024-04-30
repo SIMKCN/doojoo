@@ -27,17 +27,6 @@ class GameLoop{
         this.user.turn(this.time, this.user_input, this.cur_level, this.level);
         this.physics.update(this.user, this.level);
         this.render.draw(this.user, this.level);
-<<<<<<< HEAD
-        this.frontend.render();
-        this.sleep(30).then(() => {this.loop();});
-
-    }
-    gameInit() {
-        if (this.first_loop) {
-            this.level.updateLevel(this.cur_level);
-            this.sleep(30).then(() => {this.loop();});
-            this.first_loop = false;
-=======
         // this.frontend.render();
         this.loop(); 
     }
@@ -50,7 +39,6 @@ class GameLoop{
         }
         else{
             this.sleep(5).then(() => {this.loop();});
->>>>>>> 0c9599b7e92d39b98b615d9f2db310dd978db5c7
         }
     }
 
@@ -75,4 +63,3 @@ function start() {
     game_loop = new GameLoop();
     game_loop.gameInit();
 }
-

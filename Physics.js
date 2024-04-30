@@ -11,14 +11,19 @@ class Physics {
     updateVerticalPhysics(user)
     {
         user.y_position += user.y_speed;
+
         user.y_speed += user.y_acceleration;
+        
         if(user.y_position > 1000)
         {
+            
             user.y_position = 1000;
         }
-        if(user.y_speed < -20)
+        if(user.y_speed <= -9)
         {
-            user.y_speed = -20;
+            
+            user.y_speed = -9;
+            
         }
     }
     updateHorizontalPhysics(user)

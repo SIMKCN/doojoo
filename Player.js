@@ -5,8 +5,8 @@ class Player {
         this._y_position = null;
         this._x_speed = null;
         this._y_speed = null;
-        this._x_acceleration = 0.1;
-        this._y_acceleration = 1;
+        this._x_acceleration = 0.2;
+        this._y_acceleration = 0.2;
         this.last_level = null;
         this.LEFT = 0;
         this.RIGHT = 1;
@@ -74,10 +74,10 @@ class Player {
 
     move(direction) {
         if (direction == this.LEFT) {
-            this._x_speed -= this._x_acceleration * 2;
+            this._x_speed -= this._x_acceleration * 1.2;
         }
         else if (direction == this.RIGHT) {
-            this._x_speed += this._x_acceleration * 2;
+            this._x_speed += this._x_acceleration * 1.2;
         }
 
 

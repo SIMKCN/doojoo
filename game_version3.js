@@ -16,10 +16,12 @@ class GameLoop{
     }
 
     gameInit() {
-        if(this.cur_level == this.num_level) {
+        if(this.cur_level == this.num_level || this.user.player_points < 0) {
             this.cur_level = 0;
         }
         this.cur_level++;
+        this.time.resetTime();
+        this.user.resetPoints();
         this.time.updateTime();
         this.level.updateLevel(this.cur_level);
         this.frontend.dimOff();

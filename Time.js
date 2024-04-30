@@ -37,6 +37,7 @@ class Time{
     resetTime()
     {
         this._time_since_start_mil = 0;
+        this._last_time = null;
 
     }
 

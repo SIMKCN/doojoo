@@ -10,11 +10,12 @@ class GameLoop{
         // this.sfx = new SoundEffects();
         this.render = new Render();
         this.frontend = new Frontend();
-        this.cur_level = 1;
+        this.cur_level = 2;
         this.animation = null;
     }
 
     gameInit() {
+        this.time.updateTime();
         this.level.updateLevel(this.cur_level);
         this.frontend.dimOff();
         this.sleep(15).then(() => {this.loop();});
@@ -27,12 +28,12 @@ class GameLoop{
         }
         else
         {
-            this.time.calculateTime();
+            this.time.updateTime();
             this.level.updateLevel(this.cur_level);
             this.user.turn(this.time, this.user_input, this.cur_level, this.level);
             this.physics.update(this.user, this.level);
             this.render.draw(this.user, this.level);
-            // this.frontend.render();
+            this.frontend.updateScore(this.time, this.user);
             this.loop(); 
         }
     }
@@ -49,7 +50,7 @@ class GameLoop{
     loop(){
         if(this.asyncFinished())
         {
-            this.sleep(5).then(() => {this.manager();});
+            this.sleep(this.time.timeTillNextFrame()).then(() => {this.manager();});
             this.level_data_loading = true;
         }
         else{

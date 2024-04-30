@@ -3,6 +3,7 @@ class Time{
         this._current_time = null; // überprüfen
         this._time_since_last_frame = null;
         this._last_time = null;
+        this._frames_since_start = 0;
 
         this._time_since_start_mil = null;
         this._time_since_start_sec = null;
@@ -13,15 +14,25 @@ class Time{
     get time_since_last_frame() {
         return this.time_since_last_frame;
     }
+
+    get time_since_start_sec() {
+        return this._time_since_start_sec;
+    }
+
+    get time_since_start_min() {
+        return this._time_since_start_min;
+    }
+
+    get time_since_start_mil() {
+        return this._time_since_start_mil;
+    }
     
     updateTime()
     {
         this._time_since_start_mil += this.calculateTime();
         this._time_since_start_sec = Math.floor(this._time_since_start_mil / 1000);
         this._time_since_start_min = Math.floor(this._time_since_start_mil / 60000);
- 
-        // displayTime(); kommen beide in render class
-        // displayPoints();
+
     }
     calculateTime() 
     {
@@ -38,6 +49,14 @@ class Time{
             this._last_time = this._current_time;
             return 0;
         }
+    }
+
+    timeTillNextFrame()
+    {
+        this._frames_since_start++;
+        console.log(this._time_since_start_mil / (this._frames_since_start*5));
+        console.log(this._frames_since_start*5);
+        return 5 - ((this._time_since_start_mil + 5) / this._frames_since_start * 5);
     }
 
 }

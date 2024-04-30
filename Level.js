@@ -16,8 +16,6 @@ class Level {
         return this._spawn_point[this._last_level];
     }
 
-
-
     updateLevel(cur_level) {
         if (this._last_level != cur_level - 1) {
             this.level_data_loading = true;
@@ -28,7 +26,6 @@ class Level {
     async readJSON() {
 
         const response = await fetch('level.json');
-
 
         const data = await response.json();
 

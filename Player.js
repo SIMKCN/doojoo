@@ -1,12 +1,12 @@
 class Player {
     constructor() {
-        this._player_points = null;
+        this._player_points = 0;
         this._x_position = null;
         this._y_position = null;
         this._x_speed = null;
         this._y_speed = null;
         this._x_acceleration = 0.2;
-        this._y_acceleration = 0.2;
+        this._y_acceleration = 1;
         this.last_level = null;
         this.LEFT = 0;
         this.RIGHT = 1;
@@ -77,10 +77,10 @@ class Player {
 
     move(direction) {
         if (direction == this.LEFT) {
-            this._x_speed -= this._x_acceleration * 1.2;
+            this._x_speed -= this._x_acceleration * 2;
         }
         else if (direction == this.RIGHT) {
-            this._x_speed += this._x_acceleration * 1.2;
+            this._x_speed += this._x_acceleration * 2;
         }
 
 
@@ -94,7 +94,7 @@ class Player {
 
     playerIsAtGoal(level)
     {
-        if(this._x_position + 40> level.finish_platform.x && this._x_position +5 <= level.finish_platform.x + level.finish_platform.width && this._y_position <= level.finish_platform.y + 15 && level.finish_platform.y - 20 < this._y_position && this._y_speed <= 0) {
+        if(this._x_position + 40> level.finish_platform.x && this._x_position +5 <= level.finish_platform.x + level.finish_platform.width && this._y_position <= level.finish_platform.y + 15 && level.finish_platform.y - 20 < this._y_position ) {
             return true;
         }
         return false;

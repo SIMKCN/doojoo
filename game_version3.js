@@ -10,11 +10,16 @@ class GameLoop{
         // this.sfx = new SoundEffects();
         this.render = new Render();
         this.frontend = new Frontend();
-        this.cur_level = 1;
+        this.cur_level = 0;
+        this.num_level = null;
         this.animation = null;
     }
 
     gameInit() {
+        if(this.cur_level == this.num_level) {
+            this.cur_level = 0;
+        }
+        this.cur_level++;
         this.time.updateTime();
         this.level.updateLevel(this.cur_level);
         this.frontend.dimOff();
@@ -39,7 +44,9 @@ class GameLoop{
     }
 
     endGame() {
-        this.frontend.updateEndscreen(this.user);
+        this.num_level = this.level.num_level;
+        let is_level_left = this.cur_level < this.num_level;
+        this.frontend.updateEndscreen(this.user, is_level_left);
         this.user.resetPosition(this.level);
         // resetTimer();
         this.render.emptyCanvas();

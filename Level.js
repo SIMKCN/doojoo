@@ -6,6 +6,9 @@ class Level {
         this._spawn_point = null;
         this.level_data_loading = null;
     }
+    get num_level() {
+        return this._level.length;
+    }
     get platforms() {
         return this._level[this._last_level];
     }

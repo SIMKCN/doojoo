@@ -69,7 +69,7 @@ class Physics {
     }
     inXSpan(plat_num, user, level)
     {
-        if(level.platforms[plat_num].x < user.x_position + 40 && level.platforms[plat_num].x + level.platforms[plat_num].width > user.x_position + 5)
+        if(level.platforms[plat_num].x < user.x_position +40 && level.platforms[plat_num].x + level.platforms[plat_num].width > user.x_position + 5)
         {
             return true;
         }

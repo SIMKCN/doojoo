@@ -41,6 +41,9 @@ class Player {
     get y_acceleration() {
         return this._y_acceleration;
     }
+    get player_points() {
+        return this._player_points;
+    }
     turn(time, user_input, cur_level, level) {
         this.spawnPlayer(cur_level, level);
         this.calulatePlayerPoints(time);
@@ -87,6 +90,19 @@ class Player {
         this._y_position = level.spawn_point.y;
         this._x_speed = 0;
         this._y_speed = 0;
+    }
+
+    playerIsAtGoal(level)
+    {
+        if(this._x_position + 40> level.finish_platform.x && this._x_position +5 <= level.finish_platform.x + level.finish_platform.width && this._y_position <= level.finish_platform.y + 15 && level.finish_platform.y - 20 < this._y_position && this._y_speed <= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    playerIsOutOfTime()
+    {
+        return this._player_points < 0;
     }
 
 }

@@ -22,4 +22,19 @@ class Frontend
         document.getElementById("time").style.display = "";
         document.getElementById("score").style.display = "";
     }
+
+
+    updateEndscreen(user)
+    {
+        if(user.playerIsOutOfTime())
+        {
+            document.getElementById("endtitel").innerHTML = "Du hast Verloren";
+            document.getElementById("endPunkte").innerHTML = "";
+        }
+        else{
+            
+            document.getElementById("endtitel").innerHTML = "Du hast Gewonnen";
+            document.getElementById("endPunkte").innerHTML = user.player_points + " Punkte";
+        }
+    }
 }

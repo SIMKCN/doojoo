@@ -51,6 +51,7 @@ class Frontend {
         if (user.playerIsOutOfTime()) {
             document.getElementById("endtitel").innerHTML = "Du hast Verloren";
             document.getElementById("endPunkte").innerHTML = "";
+            document.getElementById("restartButton").innerHTML = "Erneut Starten";
         }
         else {
             if(!is_level_left){

@@ -1,6 +1,6 @@
 class Player {
     constructor() {
-        this._player_points = 0;
+        this._player_points = null;
         this._x_position = null;
         this._y_position = null;
         this._x_speed = null;
@@ -56,6 +56,11 @@ class Player {
             this.resetPosition(level);
             this.last_level = cur_level;
         }
+    }
+
+    resetPoints()
+    {
+        this._player_points = 0;
     }
 
     calulatePlayerPoints(time) {

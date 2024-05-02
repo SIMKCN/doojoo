@@ -3,10 +3,10 @@ class Physics {
     constructor() {
 
     }
-    update(user, level) {
+    update(user, level, sfx) {
         this.updateVerticalPhysics(user);
         this.updateHorizontalPhysics(user);
-        this.bounce(user, level);
+        this.bounce(user, level, sfx);
     }
     updateVerticalPhysics(user) {
         user.y_position += user.y_speed;
@@ -43,14 +43,14 @@ class Physics {
             user.x_speed = 0;
         }
     }
-    bounce(user, level) {
+    bounce(user, level, sfx) {
         for (let plat_num = 0; plat_num < level.platforms.length; plat_num++) {
             if (user.y_speed > 0 && this.inXSpan(plat_num, user, level) && this.inYSpan(plat_num, user, level)) {
-                //jump.play();
+                sfx.jumpAudio();
                 user.y_speed = -20;
 
             } else if (user.y_position == 1000) {
-                //fall.play();
+                sfx.fallAudio();
                 user.resetPosition(level);
             }
         }

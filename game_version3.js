@@ -19,6 +19,7 @@ class GameLoop{
         if(this.cur_level == this.num_level || this.user.player_points < 0) {
             this.cur_level = 0;
         }
+        this.sfx.backroundAudio();
         this.cur_level++;
         this.time.resetTime();
         this.user.resetPoints();
@@ -30,7 +31,12 @@ class GameLoop{
 
    manager() 
     {
-        if(this.user.playerIsAtGoal(this.level) || this.user.playerIsOutOfTime()){
+        if(this.user.playerIsAtGoal(this.level)){
+            this.sfx.winAudio();
+            this.endGame();
+        }
+        else if(this.user.playerIsOutOfTime())
+        {
             this.endGame();
         }
         else
@@ -38,7 +44,7 @@ class GameLoop{
             this.time.updateTime();
             this.level.updateLevel(this.cur_level);
             this.user.turn(this.time, this.user_input, this.cur_level, this.level);
-            this.physics.update(this.user, this.level);
+            this.physics.update(this.user, this.level, this.sfx);
             this.render.draw(this.user, this.level);
             this.frontend.updateScore(this.time, this.user);
             this.loop(); 
@@ -50,10 +56,9 @@ class GameLoop{
         let is_level_left = this.cur_level < this.num_level;
         this.frontend.updateEndscreen(this.user, is_level_left);
         this.user.resetPosition(this.level);
-        // resetTimer();
         this.render.emptyCanvas();
         this.frontend.dimOn();
-        // audio.pause();
+        this.sfx.backroundAudioPause();
     }
 
     loop(){

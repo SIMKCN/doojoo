@@ -7,7 +7,7 @@ class GameLoop{
         this.user_input = new Input();
         this.level = new Level();
         this.physics = new Physics();
-        // this.sfx = new SoundEffects();
+        this.sfx = new SoundEffects();
         this.render = new Render();
         this.frontend = new Frontend();
         this.cur_level = 0;

@@ -61,6 +61,8 @@ class Player {
     resetPoints()
     {
         this._player_points = 0;
+        this._x_speed = 0;
+        this._y_speed = 0;
     }
     resetSpeed(user) {
         this._x_speed = 1;

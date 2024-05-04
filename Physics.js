@@ -3,15 +3,7 @@ class Physics {
     constructor() {
 
     }
-
-    resetSpeed(user) {
-        user.x_speed = 1;
-        user.y_speed = 1;
-    }
-    update(user, level) {
-
     update(user, level, sfx) {
-
         this.updateVerticalPhysics(user);
         this.updateHorizontalPhysics(user);
         this.bounce(user, level, sfx);

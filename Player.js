@@ -62,7 +62,10 @@ class Player {
     {
         this._player_points = 0;
     }
-
+    resetSpeed(user) {
+        this._x_speed = 1;
+        this._y_speed = 1;
+    }
     calulatePlayerPoints(time) {
         this._player_points = 500 - Math.floor((Math.floor(time.time_since_start_mil / 200)));
     }

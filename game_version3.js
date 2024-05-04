@@ -31,6 +31,7 @@ class GameLoop{
    manager() 
     {
         if(this.user.playerIsAtGoal(this.level) || this.user.playerIsOutOfTime()){
+            this.user.resetSpeed();
             this.endGame();
         }
         else
@@ -47,11 +48,15 @@ class GameLoop{
 
     endGame() {
         this.num_level = this.level.num_level;
+        
         let is_level_left = this.cur_level < this.num_level;
         this.frontend.updateEndscreen(this.user, is_level_left);
+
         this.user.resetPosition(this.level);
+        
         // resetTimer();
         this.render.emptyCanvas();
+        
         this.frontend.dimOn();
         // audio.pause();
     }

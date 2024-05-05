@@ -10,6 +10,7 @@ class SoundEffects{
 
     backroundAudio(){
         this.audio.play();
+        audio.loop = true;
     }
     backroundAudioPause(){
         this.audio.pause();

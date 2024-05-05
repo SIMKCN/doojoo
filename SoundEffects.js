@@ -1,10 +1,10 @@
 class SoundEffects{
 
     constructor() {
-        this.audio = new Audio("music_background.mp3");
-        this.fall = new Audio("scream.mp3");
-        this.jump = new Audio("jump.wav");
-        this.win = new Audio("win_sound.wav");
+        this.audio = new Audio("/music/music_background.mp3");
+        this.fall = new Audio("/music/scream.mp3");
+        this.jump = new Audio("/music/jump.wav");
+        this.win = new Audio("/music/win_sound.wav");
         this.jump.defaultPlaybackRate = 2.0;
     }
 

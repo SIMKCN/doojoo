@@ -53,10 +53,13 @@ class GameLoop{
 
     endGame() {
         this.num_level = this.level.num_level;
+        
         let is_level_left = this.cur_level < this.num_level;
         this.frontend.updateEndscreen(this.user, is_level_left);
+
         this.user.resetPosition(this.level);
         this.render.emptyCanvas();
+        
         this.frontend.dimOn();
         this.sfx.backroundAudioPause();
     }

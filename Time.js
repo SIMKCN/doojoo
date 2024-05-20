@@ -10,9 +10,6 @@ class Time{
 
 
     } 
-    get time_since_last_frame() {
-        return this.time_since_last_frame;
-    }
 
     get time_since_start_sec() {
         return this._time_since_start_sec;

@@ -10,6 +10,7 @@ class SoundEffects{
 
     backroundAudio(){
         this.audio.play();
+        this.audio.loop = true;
     }
     backroundAudioPause(){
         this.audio.pause();
@@ -18,7 +19,7 @@ class SoundEffects{
         this.fall.play();
     }
     jumpAudio(){
-        // this.jump.play();
+        this.jump.play();
     }
     winAudio(){
         this.win.play();
